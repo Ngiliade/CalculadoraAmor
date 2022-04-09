@@ -1,20 +1,38 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+  <ion-toolbar color="success">
+    <ion-title class="text-center">
+      Calculadora do Amor
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" color="dark">
+  <div class="mt-5 text-center" style="font-size: 20px;">
+    <p>Qual a sua chance com seu amor</p>
+  </div>
+  <div id="container" class="justify-content-center mt-5">
+    <div class="form-group d-flex justify-content-center">
+      <form action="" id="form-nomes" class="text-center">
+        <label>Qual o seu nome?</label>
+        <br>
+        <input class="form-control" type="text" [(ngModel)]="nome1" name="nome1">
+        <br>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <label for="">Qual o nome da pessoa de sorte?</label>
+        <br>    
+        <input class="form-control" type="text" [(ngModel)]="nome2" name="nome2">
+
+    
+        <div class = "d-flex justify-content-center">
+          <button type="button" class="btn btn-danger mt-3" (click)="enviarDados()">Calcular</button>
+        </div> 
+        
+      </form>
+    </div>
+    <div>
+      <p [class.painel]="calculando" [class.scale-up-center]="!calculando" class="mt-3 text-center" id="resultado">{{ resultado }} % </p>
+      <p id="mensagem" class="ms-6">{{ mensagem }}</p>
+      <img [class.d-none]="!imagem" src="../../assets/img/amizade.jpg" alt="">
+    </div>
   </div>
 </ion-content>
